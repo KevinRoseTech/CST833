@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * K: This class starts the GUI for our program.
+ * K: This class starts the GUI for our program, Sharmarke this will be relevent to your duties as GUI lead
  */
 
 public class HelloApplication extends Application {

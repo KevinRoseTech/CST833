@@ -17,7 +17,7 @@ public class Deck {
                 cards.push(new Card(value, suit)); // K: Card object is created with a value and a suit and pushed to the TOP of the card stack
             }
         }
-        Collections.shuffle(cards); // Shuffles the deck
+        Collections.shuffle(cards); // K: Shuffles the deck
     }
 
     // K: Method to remove the top card from the cards Stack and returns it.

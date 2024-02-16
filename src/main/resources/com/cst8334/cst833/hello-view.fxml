@@ -5,8 +5,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
 
-<!--K: This is a template for the GUI-->
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+<!--K: This is a template for the GUI, Sharmarke this will be more relevant to you as GUI lead-->
+<VBox alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.cst8334.cst833.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>

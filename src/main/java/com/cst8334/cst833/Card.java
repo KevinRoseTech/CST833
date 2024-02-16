@@ -1,8 +1,10 @@
 package com.cst8334.cst833;
 /*
     K: To start us off this is what I imagine the Card class should compromise of, please add to this.
-       We have their suit and value, as well as the status of card being flipped up or down
+       We have their suit and value, as well as the status of card being flipped up or down.
  */
+
+//K: I put
 public class Card {
     enum Suit {
         HEARTS, DIAMONDS, CLUBS, SPADES
