@@ -16,7 +16,22 @@ public class Deck {
         cards = new Stack<>(); // K: Creates a Stack object. Stack objects are Last in First Out from what I see.
         for (Card.Suit suit : Card.Suit.values()) { // K: This loop iterates through each suit in the card class
             for (int value = 1; value <= 13; value++) { // K: This nested loop creates 13 cards of each suit, ace-king = 13
-                String frontImagePath = "path_to_front_image";
+                String frontImagePath = "";
+                switch (suit) {
+                    case HEARTS:
+                        frontImagePath = "/card_images/" + value + "h.gif";
+                        break;
+                    case DIAMONDS:
+                        frontImagePath = "/card_images/" + value + "d.gif";
+                        break;
+                    case CLUBS:
+                        frontImagePath = "/card_images/" + value + "c.gif";
+                        break;
+                    case SPADES:
+                        frontImagePath = "/card_images/" + value + "s.gif";
+                        break;
+                }
+
                 String backImagePath = "/card_images/back_card.gif";
                 System.out.println(backImagePath);
                 Image frontImage = new Image(frontImagePath);
