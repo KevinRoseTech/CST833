@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="986d96aa-cf48-4289-9ec4-590c9a5cb60f" name="Changes" comment="Added Sharmarke's contribution from email attachment and made changes to help him finish this contribution">
+    <list default="true" id="986d96aa-cf48-4289-9ec4-590c9a5cb60f" name="Changes" comment="Added sharmarke's contribution to Deck.java with the following changes to make it work.&#10;&#10;Switch was capitalized when it should be all lower case, application would not run otherwise.&#10;The switch cases had quotes so I removed them, application would not run otherwise.&#10;You used an i variable without declaring it, I assume you meant to use &quot;value&quot; so I changed it for you as once again this would cause errors elsewise.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Tableau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Tableau.java" afterDir="false" />
     </list>
@@ -22,6 +23,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
@@ -47,30 +53,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "alt06",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Kevin/Music/Solitaire/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;alt06&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kevin/Music/Solitaire/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.cst8334.cst833" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kevin\Documents\JAVA PROJECTS\CST833\src\main\resources" />
+      <recent name="C:\Users\Kevin\Documents\JAVA PROJECTS\CST833\src\main\java\com\cst8334\cst833" />
     </key>
   </component>
   <component name="RunManager">
@@ -90,6 +102,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -105,7 +118,11 @@
       <workItem from="1707762647269" duration="134000" />
       <workItem from="1708019409933" duration="7891000" />
       <workItem from="1708133544235" duration="9669000" />
-      <workItem from="1708820372787" duration="1672000" />
+      <workItem from="1708820372787" duration="2397000" />
+      <workItem from="1709065110179" duration="2291000" />
+      <workItem from="1709081513095" duration="1850000" />
+      <workItem from="1709220468356" duration="5193000" />
+      <workItem from="1709741855279" duration="14190000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit, basic GUI (unrelated to solitaire currently) and general solitaire structure">
       <option name="closed" value="true" />
@@ -131,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708202951984</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added sharmarke's contribution to Deck.java with the following changes to make it work.&#10;&#10;Switch was capitalized when it should be all lower case, application would not run otherwise.&#10;The switch cases had quotes so I removed them, application would not run otherwise.&#10;You used an i variable without declaring it, I assume you meant to use &quot;value&quot; so I changed it for you as once again this would cause errors elsewise.">
+      <option name="closed" value="true" />
+      <created>1708822214943</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708822214943</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +177,12 @@
     <MESSAGE value="Initial commit, basic GUI (unrelated to solitaire currently) and general solitaire structure" />
     <MESSAGE value="Additional comments for presentation" />
     <MESSAGE value="Added Sharmarke's contribution from email attachment and made changes to help him finish this contribution" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Sharmarke's contribution from email attachment and made changes to help him finish this contribution" />
+    <MESSAGE value="Added sharmarke's contribution to Deck.java with the following changes to make it work.&#10;&#10;Switch was capitalized when it should be all lower case, application would not run otherwise.&#10;The switch cases had quotes so I removed them, application would not run otherwise.&#10;You used an i variable without declaring it, I assume you meant to use &quot;value&quot; so I changed it for you as once again this would cause errors elsewise." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sharmarke's contribution to Deck.java with the following changes to make it work.&#10;&#10;Switch was capitalized when it should be all lower case, application would not run otherwise.&#10;The switch cases had quotes so I removed them, application would not run otherwise.&#10;You used an i variable without declaring it, I assume you meant to use &quot;value&quot; so I changed it for you as once again this would cause errors elsewise." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CST833$HelloApplication.ic" NAME="HelloApplication Coverage Results" MODIFIED="1709221637724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.cst8334.cst833.*</FILTER>
+    </SUITE>
   </component>
 </project>

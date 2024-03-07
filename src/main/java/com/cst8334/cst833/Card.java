@@ -29,7 +29,6 @@ public class Card {
     }
 
     //K: getters and setters
-    // Method to toggle the card's face-up status
     public void flip() {
         faceUp = !faceUp;
     }
@@ -52,7 +51,7 @@ public class Card {
         return backImage;
     }
 
-    // toString method for debugging
+    //K: This is a debug method I created, I don't have much use for it anymore but maybe you all would?
     @Override
     public String toString() {
         return "Card{" +

@@ -1,0 +1,51 @@
+Index: src/main/java/com/cst8334/cst833/Tableau.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.cst8334.cst833;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Stack;\r\n\r\npublic class Tableau {\r\n\r\n    private List<Stack<Card>> piles;\r\n\r\n    public Tableau(int numberOfPiles) {\r\n        piles = new ArrayList<>(numberOfPiles);\r\n        for (int i = 0; i < numberOfPiles; i++) {\r\n            piles.add(new Stack<>());\r\n        }\r\n    }\r\n\r\n    public boolean canPlaceCard(Card card, int pileIndex) {\r\n        if (pileIndex < 0 || pileIndex >= piles.size()) {\r\n            return false; // Pile index out of bounds\r\n        }\r\n\r\n        Stack<Card> targetPile = piles.get(pileIndex);\r\n\r\n        if (targetPile.isEmpty()) {\r\n            // Rule: Spare tableau spots can only be filled with kings\r\n            return card.getValue() == 13; // Assuming 13 represents a King\r\n        } else {\r\n            Card topCard = targetPile.peek();\r\n            // Rule: Tableau cards can only be stacked in alternating colors\r\n            return isOppositeColor(card, topCard) && card.getValue() == topCard.getValue() - 1;\r\n        }\r\n    }\r\n\r\n    public void placeCard(Card card, int pileIndex) {\r\n        if (canPlaceCard(card, pileIndex)) {\r\n            piles.get(pileIndex).push(card);\r\n        } else {\r\n            System.out.println(\"Card move not valid, if its supposed to be bring it up to the team!\");\r\n            // Alternatively, throw an exception or handle this case as needed\r\n        }\r\n    }\r\n\r\n    private boolean isOppositeColor(Card card1, Card card2) {\r\n        //Suits are ordered as HEARTS, DIAMONDS, CLUBS, SPADES in the enum (check card class).\r\n        boolean card1IsRed = card1.getSuit() == Card.Suit.HEARTS || card1.getSuit() == Card.Suit.DIAMONDS;\r\n        boolean card2IsRed = card2.getSuit() == Card.Suit.HEARTS || card2.getSuit() == Card.Suit.DIAMONDS;\r\n\r\n        return card1IsRed != card2IsRed; //False if both are the same colour.\r\n    }\r\n\r\n}
+===================================================================
+diff --git a/src/main/java/com/cst8334/cst833/Tableau.java b/src/main/java/com/cst8334/cst833/Tableau.java
+--- a/src/main/java/com/cst8334/cst833/Tableau.java	
++++ b/src/main/java/com/cst8334/cst833/Tableau.java	
+@@ -17,17 +17,17 @@
+ 
+     public boolean canPlaceCard(Card card, int pileIndex) {
+         if (pileIndex < 0 || pileIndex >= piles.size()) {
+-            return false; // Pile index out of bounds
++            return false;
+         }
+ 
+         Stack<Card> targetPile = piles.get(pileIndex);
+ 
+         if (targetPile.isEmpty()) {
+-            // Rule: Spare tableau spots can only be filled with kings
+-            return card.getValue() == 13; // Assuming 13 represents a King
++            //K: Spare tableau spots can only be filled with kings
++            return card.getValue() == 13;
+         } else {
+             Card topCard = targetPile.peek();
+-            // Rule: Tableau cards can only be stacked in alternating colors
++            //K: Rule: Tableau cards can only be stacked in alternating colors
+             return isOppositeColor(card, topCard) && card.getValue() == topCard.getValue() - 1;
+         }
+     }
+@@ -37,16 +37,16 @@
+             piles.get(pileIndex).push(card);
+         } else {
+             System.out.println("Card move not valid, if its supposed to be bring it up to the team!");
+-            // Alternatively, throw an exception or handle this case as needed
+         }
+     }
+ 
+     private boolean isOppositeColor(Card card1, Card card2) {
+-        //Suits are ordered as HEARTS, DIAMONDS, CLUBS, SPADES in the enum (check card class).
++        //K: Suits are ordered as HEARTS, DIAMONDS, CLUBS, SPADES in the enum (check card class).
+         boolean card1IsRed = card1.getSuit() == Card.Suit.HEARTS || card1.getSuit() == Card.Suit.DIAMONDS;
+         boolean card2IsRed = card2.getSuit() == Card.Suit.HEARTS || card2.getSuit() == Card.Suit.DIAMONDS;
+ 
+-        return card1IsRed != card2IsRed; //False if both are the same colour.
++        //K: False if both are the same colour.
++        return card1IsRed != card2IsRed;
+     }
+ 
+ }
+\ No newline at end of file
