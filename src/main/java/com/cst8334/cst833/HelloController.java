@@ -1,21 +1,53 @@
 package com.cst8334.cst833;
+
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.layout.StackPane;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
-/*
-   K: This is the controller that will be handling user interactions
-      So when an event happens, a method here will be used to handle the event
-
-      For now a button is displayed in the GUI and when clicked, onHelloButtonClick() is invoked to set welcome text
-      Feel free to delete the button when working on the UI
- */
 public class HelloController {
-    @FXML
-    private Label welcomeText;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Just a test to make sure GUI works");
+    private ImageView stockPile; // ImageView for the stock pile.
+
+    @FXML
+    private StackPane talonPile; // StackPane for displaying the talon pile.
+
+    private Deck deck = new Deck();
+
+    @FXML
+    private void initialize() {
+        deck.shuffle();
+        // Optionally set an image on the stockPile to indicate it's clickable or holds cards.
+        // Ensure you have a default card or back image at '/card_images/back_card.gif'
+        stockPile.setImage(new Image(Deck.class.getResourceAsStream("/card_images/back_card.gif")));
+    }
+
+    @FXML
+    private void onStockClicked(MouseEvent event) {
+        if (!deck.isEmpty()) {
+            Card card = deck.drawCard();
+            // Assuming card.getFrontImage() returns an Image. Adjust according to your Card class implementation.
+            ImageView cardView = new ImageView(card.getFrontImage());
+            talonPile.getChildren().clear(); // Clear previous cards from the talonPile.
+            talonPile.getChildren().add(cardView); // Add the new card view to the talonPile.
+        }
+    }
+
+    //Tableau
+    @FXML
+    private StackPane tableau1, tableau2, tableau3, tableau4, tableau5, tableau6, tableau7;
+    private StackPane getTableauPane(int pileIndex) {
+        switch (pileIndex) {
+            case 0: return tableau1;
+            case 1: return tableau2;
+            case 2: return tableau3;
+            case 3: return tableau4;
+            case 4: return tableau5;                      case 5: return tableau6;
+            case 6: return tableau7;
+            default: throw new IllegalArgumentException("Invalid pile index: " + pileIndex);
+        }
     }
 
 

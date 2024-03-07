@@ -28,12 +28,11 @@ public class Card {
         this.backImage = backImage;
     }
 
-
-
-
-
-
     //K: getters and setters
+    // Method to toggle the card's face-up status
+    public void flip() {
+        faceUp = !faceUp;
+    }
     public int getValue() {
         return value;
     }
@@ -52,4 +51,17 @@ public class Card {
     public Image getBackImage() {
         return backImage;
     }
+
+    // toString method for debugging
+    @Override
+    public String toString() {
+        return "Card{" +
+                "value=" + value +
+                ", suit=" + suit +
+                ", faceUp=" + faceUp +
+                '}';
+    }
 }
+
+
+

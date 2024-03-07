@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Button?>
 
-<!--K: This is a template for the GUI, Sharmarke this will be more relevant to you as GUI lead-->
-<VBox alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.cst8334.cst833.HelloController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cst8334.cst833.HelloController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="CST8334 test" onAction="#onHelloButtonClick"/>
-</VBox>
+    <!-- Stockpile and Talon -->
+    <HBox spacing="20" layoutX="20" layoutY="20">
+        <ImageView fx:id="stockPile" onMouseClicked="#onStockClicked" style="-fx-border-color: black; -fx-border-width: 2; -fx-padding: 10;" fitWidth="100" fitHeight="140"/>
+        <StackPane fx:id="talonPile" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
+    </HBox>
+
+    <!-- Foundations -->
+    <HBox spacing="20" layoutX="340" layoutY="20">
+        <StackPane fx:id="foundation1" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
+        <StackPane fx:id="foundation2" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
+        <StackPane fx:id="foundation3" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
+        <StackPane fx:id="foundation4" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
+    </HBox>
+
+    <!-- Tableau -->
+    <VBox layoutX="20" layoutY="250">
+        <HBox spacing="10">
+            <StackPane fx:id="tableau1" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
+            <StackPane fx:id="tableau2" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
+            <StackPane fx:id="tableau3" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
+            <StackPane fx:id="tableau4" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
+            <StackPane fx:id="tableau5" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
+            <StackPane fx:id="tableau6" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
+            <StackPane fx:id="tableau7" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

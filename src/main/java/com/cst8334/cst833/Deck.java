@@ -13,33 +13,22 @@ public class Deck {
 
     // K: My vision for the Deck constructor, feel free to edit
     public Deck() {
-        cards = new Stack<>(); // K: Creates a Stack object. Stack objects are Last in First Out from what I see.
-        for (Card.Suit suit : Card.Suit.values()) { // K: This loop iterates through each suit in the card class
-            for (int value = 1; value <= 13; value++) { // K: This nested loop creates 13 cards of each suit, ace-king = 13
-                String frontImagePath = "";
-                switch (suit) {
-                    case HEARTS:
-                        frontImagePath = "/card_images/" + value + "h.gif";
-                        break;
-                    case DIAMONDS:
-                        frontImagePath = "/card_images/" + value + "d.gif";
-                        break;
-                    case CLUBS:
-                        frontImagePath = "/card_images/" + value + "c.gif";
-                        break;
-                    case SPADES:
-                        frontImagePath = "/card_images/" + value + "s.gif";
-                        break;
-                }
-
-                String backImagePath = "/card_images/back_card.gif";
-                System.out.println(backImagePath);
-                Image frontImage = new Image(frontImagePath);
-                Image backImage = new Image(backImagePath);
-                cards.push(new Card(value, suit, frontImage, backImage)); // K: Card object is created with a value and a suit and pushed to the TOP of the card stack
+        cards = new Stack<>();
+        for (Card.Suit suit : Card.Suit.values()) {
+            for (int value = 1; value <= 13; value++) {
+                String imagePathSuffix = switch (suit) {
+                    case HEARTS -> "h";
+                    case DIAMONDS -> "d";
+                    case CLUBS -> "c";
+                    case SPADES -> "s";
+                };
+                String frontImagePath = "/card_images/" + value + imagePathSuffix + ".gif";
+                Image frontImage = new Image(Deck.class.getResourceAsStream(frontImagePath));
+                Image backImage = new Image(Deck.class.getResourceAsStream("/card_images/back_card.gif"));
+                cards.push(new Card(value, suit, frontImage, backImage));
             }
         }
-        Collections.shuffle(cards); // K: Shuffles the deck
+        Collections.shuffle(cards);
     }
 
     // K: Method to remove the top card from the cards Stack and returns it.
@@ -53,5 +42,8 @@ public class Deck {
     //    Avoiding the EmptyStackException
     public boolean isEmpty() {
         return cards.isEmpty();
+    }
+    public void shuffle() {
+        Collections.shuffle(cards);
     }
 }
