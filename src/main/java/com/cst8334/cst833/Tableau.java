@@ -36,20 +36,17 @@ public class Tableau {
         if (canPlaceCard(card, pileIndex)) {
             piles.get(pileIndex).push(card);
         } else {
-            System.out.println("Cannot place card here.");
+            System.out.println("Card move not valid, if its supposed to be bring it up to the team!");
             // Alternatively, throw an exception or handle this case as needed
         }
     }
 
     private boolean isOppositeColor(Card card1, Card card2) {
-        // Suits are ordered as HEARTS, DIAMONDS, CLUBS, SPADES in the enum.
-        // HEARTS and DIAMONDS (ordinal values 0 and 1) are red; CLUBS and SPADES (ordinal values 2 and 3) are black.
-        // This checks if one card is red and the other is black by comparing their ordinal values.
+        //Suits are ordered as HEARTS, DIAMONDS, CLUBS, SPADES in the enum (check card class).
         boolean card1IsRed = card1.getSuit() == Card.Suit.HEARTS || card1.getSuit() == Card.Suit.DIAMONDS;
         boolean card2IsRed = card2.getSuit() == Card.Suit.HEARTS || card2.getSuit() == Card.Suit.DIAMONDS;
 
-        return card1IsRed != card2IsRed; // True if one is red and the other is black, false if both are the same color.
+        return card1IsRed != card2IsRed; //False if both are the same colour.
     }
 
-    // Additional helper methods if needed...
 }

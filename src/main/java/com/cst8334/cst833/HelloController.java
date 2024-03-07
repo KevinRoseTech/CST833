@@ -19,16 +19,31 @@ public class HelloController {
     @FXML
     private void initialize() {
         deck.shuffle();
-        // Optionally set an image on the stockPile to indicate it's clickable or holds cards.
-        // Ensure you have a default card or back image at '/card_images/back_card.gif'
+        //Optionally set an image on the stockPile to indicate it's clickable or holds cards.
         stockPile.setImage(new Image(Deck.class.getResourceAsStream("/card_images/back_card.gif")));
+
+        // Deal cards to each tableau pile
+        for (int pileIndex = 0; pileIndex < 7; pileIndex++) {
+            StackPane tableauPane = getTableauPane(pileIndex);
+            for (int cardIndex = 0; cardIndex <= pileIndex; cardIndex++) {
+                Card card = deck.drawCard();
+                ImageView cardView = new ImageView(card.getBackImage());
+                if (cardIndex == pileIndex) {
+                    card.flip(); // Flip the last card to be face up
+                    cardView.setImage(card.getFrontImage());
+                }
+                tableauPane.getChildren().add(cardView);
+                // Adjust the layout of the cards so they are staggered or overlapping
+                cardView.setTranslateY(cardIndex * 30);
+            }
+        }
     }
 
     @FXML
     private void onStockClicked(MouseEvent event) {
         if (!deck.isEmpty()) {
             Card card = deck.drawCard();
-            // Assuming card.getFrontImage() returns an Image. Adjust according to your Card class implementation.
+            //Assuming card.getFrontImage() returns an Image. Adjust according to your Card class implementation.
             ImageView cardView = new ImageView(card.getFrontImage());
             talonPile.getChildren().clear(); // Clear previous cards from the talonPile.
             talonPile.getChildren().add(cardView); // Add the new card view to the talonPile.
