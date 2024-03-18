@@ -1,0 +1,21 @@
+/* styles.css */
+
+/* Styling for foundation piles */
+.foundation-pile {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-pref-width: 100;
+    -fx-pref-height: 140;
+}
+
+.foundation-pile.drag-over {
+    -fx-border-color: gold;
+}
+
+/* Styling for tableau piles */
+.tableau-pile {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-pref-width: 100;
+    -fx-pref-height: 140;
+}
