@@ -4,24 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="986d96aa-cf48-4289-9ec4-590c9a5cb60f" name="Changes" comment="Added missing Foundation logic, no interaction with our Controller class yet.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/cst8334/cst833/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_5_2024_2_05_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_5_2024_2_05_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_6_2024_8_53_PM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_6_2024_8_53_PM__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_6_2024_8_54_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_6_2024_8_54_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_6_2024_8_14_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_6_2024_8_14_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="986d96aa-cf48-4289-9ec4-590c9a5cb60f" name="Changes" comment="Sharmarke Contribution Assign 2 Test branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Foundation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Foundation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Tableau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Tableau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cst8334/cst833/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cst8334/cst833/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Assignment2" />
+        <entry key="$PROJECT_DIR$" value="SharmarkeTest" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,7 +57,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "SharmarkeTest",
+    "git-widget-placeholder": "Charle's-Build-Test",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Kevin/Documents/JAVA PROJECTS/CST833/src/main/java/com/cst8334/cst833",
@@ -144,7 +128,7 @@
       <workItem from="1709869914758" duration="1264000" />
       <workItem from="1710312119230" duration="380000" />
       <workItem from="1710349095557" duration="13846000" />
-      <workItem from="1710776869690" duration="4619000" />
+      <workItem from="1710776869690" duration="5970000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit, basic GUI (unrelated to solitaire currently) and general solitaire structure">
       <option name="closed" value="true" />
@@ -194,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709784728730</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Sharmarke Contribution Assign 2 Test branch">
+      <option name="closed" value="true" />
+      <created>1710792622005</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710792622005</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +210,8 @@
     <MESSAGE value="Added sharmarke's contribution to Deck.java with the following changes to make it work.&#10;&#10;Switch was capitalized when it should be all lower case, application would not run otherwise.&#10;The switch cases had quotes so I removed them, application would not run otherwise.&#10;You used an i variable without declaring it, I assume you meant to use &quot;value&quot; so I changed it for you as once again this would cause errors elsewise." />
     <MESSAGE value="Tableau" />
     <MESSAGE value="Added missing Foundation logic, no interaction with our Controller class yet." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added missing Foundation logic, no interaction with our Controller class yet." />
+    <MESSAGE value="Sharmarke Contribution Assign 2 Test branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sharmarke Contribution Assign 2 Test branch" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CST833$HelloApplication.ic" NAME="HelloApplication Coverage Results" MODIFIED="1709221637724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

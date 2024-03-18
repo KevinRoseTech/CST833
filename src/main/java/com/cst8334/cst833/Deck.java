@@ -9,6 +9,12 @@ import javafx.scene.image.Image;
  */
 public class Deck {
     private Stack<Card> cards;
+    public Card getCardAtTopOfDeck() {
+        if (!isEmpty()) {
+            return cards.peek(); // Peek at the top card without removing it
+        }
+        return null; // Return null if the deck is empty
+    }
 
 
     // K: My vision for the Deck constructor, feel free to edit

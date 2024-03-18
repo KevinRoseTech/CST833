@@ -49,17 +49,4 @@ public class Tableau {
         return card1IsRed != card2IsRed; //False if both are the same colour.
     }
 
-// Method to calculate the score
-    public int calculateScore() {
-        int score = 0;
-        for (Stack<Card> pile : piles) {
-            for (Card card : pile) {
-                if (card.isFaceUp()) {
-                    score++;
-                }
-            }
-        }
-        return score;
-    }
-
 }

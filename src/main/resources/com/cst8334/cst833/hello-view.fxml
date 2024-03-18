@@ -9,14 +9,17 @@
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
+    <!-- New Game Button --> 
+    <Button text="New Game" layoutX="20" layoutY="20" onAction="#startNewGame"/>
+
     <!-- Stockpile and Talon -->
-    <HBox spacing="20" layoutX="20" layoutY="20">
+    <HBox spacing="20" layoutX="20" layoutY="60">
         <ImageView fx:id="stockPile" onMouseClicked="#onStockClicked" style="-fx-border-color: black; -fx-border-width: 2; -fx-padding: 10;" fitWidth="100" fitHeight="140"/>
         <StackPane fx:id="talonPile" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
     </HBox>
 
     <!-- Foundations -->
-    <HBox spacing="20" layoutX="340" layoutY="20">
+    <HBox spacing="20" layoutX="340" layoutY="60">
         <StackPane fx:id="foundation1" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
         <StackPane fx:id="foundation2" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
         <StackPane fx:id="foundation3" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
@@ -24,7 +27,7 @@
     </HBox>
 
     <!-- Tableau -->
-    <VBox layoutX="20" layoutY="250">
+    <VBox layoutX="20" layoutY="200">
         <HBox spacing="10">
             <StackPane fx:id="tableau1" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
             <StackPane fx:id="tableau2" style="-fx-border-color: black; -fx-border-width: 2; -fx-pref-width: 100; -fx-pref-height: 140;"/>
