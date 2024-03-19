@@ -2,9 +2,15 @@ package com.cst8334.cst833;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.StackPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class HelloController {
 
@@ -160,5 +166,81 @@ public class HelloController {
                (card2.getSuit() == Card.Suit.HEARTS || card2.getSuit() == Card.Suit.DIAMONDS);
     }
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private void setupDragAndDrop() {
+        List<StackPane> tableaus = Arrays.asList(tableau1, tableau2, tableau3, tableau4, tableau5, tableau6, tableau7);
+        for (StackPane tableau : tableaus) {
+            setupTableauDropTarget(tableau);
+        }
+    }
+
+    private void makeCardDraggable(ImageView cardView, Card card) {
+        cardView.setOnDragDetected(event -> {
+            Dragboard db = cardView.startDragAndDrop(TransferMode.MOVE);
+            ClipboardContent content = new ClipboardContent();
+            // Generate a unique identifier for the card
+            String identifier = card.getSuit().name() + ":" + card.getValue();
+            content.putString(identifier);
+            db.setContent(content);
+
+            cardView.setOpacity(0.5);
+            event.consume();
+        });
+
+        cardView.setOnDragDone(event -> {
+            cardView.setOpacity(1.0);
+            event.consume();
+        });
+    }
+
+    private void setupTableauDropTarget(StackPane tableau) {
+        tableau.setOnDragOver(event -> {
+            if (event.getGestureSource() != tableau && event.getDragboard().hasString()) {
+                event.acceptTransferModes(TransferMode.MOVE);
+            }
+            event.consume();
+        });
+
+        tableau.setOnDragDropped(event -> {
+            Dragboard db = event.getDragboard();
+            boolean success = false;
+
+            if (db.hasString()) {
+                String cardData = db.getString();
+                String[] parts = cardData.split(":");
+                Card.Suit suit = Card.Suit.valueOf(parts[0]);
+                int value = Integer.parseInt(parts[1]);
+
+                // Now you have the suit and value, you can find the corresponding card
+                // Implement the logic to check if the move is valid and then move the card
+
+                success = true; // Set to true if the move is valid
+            }
+
+            event.setDropCompleted(success);
+            event.consume();
+        });
+    }
+
+
+
+
+
 }
