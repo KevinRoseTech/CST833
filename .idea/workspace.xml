@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="986d96aa-cf48-4289-9ec4-590c9a5cb60f" name="Changes" comment="Tableau">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Tableau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Tableau.java" afterDir="false" />
-    </list>
+    <list default="true" id="986d96aa-cf48-4289-9ec4-590c9a5cb60f" name="Changes" comment="K: Fixed Redundant Code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="alt06" />
+        <entry key="$PROJECT_DIR$" value="Charle's-Build-Test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,29 +48,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Charle's-Build-Test&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kevin/Music/Solitaire/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "unstable",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Kevin/Music/Solitaire/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.cst8334.cst833" />
@@ -125,7 +119,7 @@
       <workItem from="1709220468356" duration="5193000" />
       <workItem from="1709741855279" duration="14190000" />
       <workItem from="1710888346348" duration="131000" />
-      <workItem from="1710901041425" duration="8177000" />
+      <workItem from="1710901041425" duration="8483000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit, basic GUI (unrelated to solitaire currently) and general solitaire structure">
       <option name="closed" value="true" />
@@ -175,7 +169,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710888469999</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="K: Fixed Redundant Code">
+      <option name="closed" value="true" />
+      <created>1710909514895</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710909514895</updated>
+    </task>
+    <task id="LOCAL-00008" summary="K: Fixed Redundant Code">
+      <option name="closed" value="true" />
+      <created>1710909553997</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710909553997</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +208,8 @@
     <MESSAGE value="Added Sharmarke's contribution from email attachment and made changes to help him finish this contribution" />
     <MESSAGE value="Added sharmarke's contribution to Deck.java with the following changes to make it work.&#10;&#10;Switch was capitalized when it should be all lower case, application would not run otherwise.&#10;The switch cases had quotes so I removed them, application would not run otherwise.&#10;You used an i variable without declaring it, I assume you meant to use &quot;value&quot; so I changed it for you as once again this would cause errors elsewise." />
     <MESSAGE value="Tableau" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tableau" />
+    <MESSAGE value="K: Fixed Redundant Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="K: Fixed Redundant Code" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CST833$HelloApplication.ic" NAME="HelloApplication Coverage Results" MODIFIED="1709221637724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
