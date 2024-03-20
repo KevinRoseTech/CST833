@@ -6,10 +6,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-/**
- * K: This class starts the GUI for our program, Sharmarke this will be relevent to your duties as GUI lead
- */
-
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
@@ -19,7 +15,6 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
     public static void main(String[] args) {
         launch();
     }

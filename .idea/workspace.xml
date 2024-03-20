@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="986d96aa-cf48-4289-9ec4-590c9a5cb60f" name="Changes" comment="Tableau">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Tableau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Tableau.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +124,8 @@
       <workItem from="1709081513095" duration="1850000" />
       <workItem from="1709220468356" duration="5193000" />
       <workItem from="1709741855279" duration="14190000" />
-      <workItem from="1710888346348" duration="108000" />
+      <workItem from="1710888346348" duration="131000" />
+      <workItem from="1710901041425" duration="8177000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit, basic GUI (unrelated to solitaire currently) and general solitaire structure">
       <option name="closed" value="true" />
@@ -163,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709783731708</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Tableau">
+      <option name="closed" value="true" />
+      <created>1710888469999</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710888469999</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -2,44 +2,46 @@ package com.cst8334.cst833;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.TransferMode;
 import javafx.scene.layout.StackPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class HelloController {
 
-    @FXML
-    private ImageView stockPile; //K: ImageView for the stock pile.
-
-    @FXML
-    private StackPane talonPile; //K: StackPane for displaying the talon pile.
-
+    @FXML private ImageView stockPile;
+    @FXML private StackPane talonPile;
     private Deck deck = new Deck();
 
+    //K: Initialize is executed on application startup
     @FXML
     private void initialize() {
-        deck.shuffle();
-        //K: Optionally set an image on the stockPile to indicate it's clickable or holds cards.
-        stockPile.setImage(new Image(Deck.class.getResourceAsStream("/card_images/back_card.gif")));
+        setupGame();
+    }
+    //K: startNewGame is executed when the GUI button made by Charles is clicked.
+    @FXML
+    private void startNewGame() {
+        setupGame();
+    }
 
-        //K: Deal cards to each tableau pile
+    private void setupGame() {
+        deck = new Deck();
+        deck.shuffle();
+        stockPile.setImage(new Image(Deck.class.getResourceAsStream("/card_images/back_card.gif")));
+        dealCardsToTableau();
+    }
+
+    private void dealCardsToTableau() {
         for (int pileIndex = 0; pileIndex < 7; pileIndex++) {
             StackPane tableauPane = getTableauPane(pileIndex);
+            tableauPane.getChildren().clear();
             for (int cardIndex = 0; cardIndex <= pileIndex; cardIndex++) {
                 Card card = deck.drawCard();
                 ImageView cardView = new ImageView(card.getBackImage());
                 if (cardIndex == pileIndex) {
-                    card.flip(); //K: Flip the last card to be face up
+                    card.flip();
                     cardView.setImage(card.getFrontImage());
                 }
                 tableauPane.getChildren().add(cardView);
-                //K: Adjusting layout
                 cardView.setTranslateY(cardIndex * 30);
             }
         }
@@ -56,29 +58,7 @@ public class HelloController {
             talonPile.getChildren().add(cardView);
         }
     }
- 
-    //Charles User must be able to start a new game, thus receiving a freshly shuffled deck of cards (button, starts game again)
-    @FXML
-    private void startNewGame() {
-        deck = new Deck();
-        deck.shuffle();
 
-        stockPile.setImage(new Image(Deck.class.getResourceAsStream("/card_images/back_card.gif")));
-
-        for (int pileIndex = 0; pileIndex < 7; pileIndex++) {
-            StackPane tableauPane = getTableauPane(pileIndex);
-            for (int cardIndex = 0; cardIndex <= pileIndex; cardIndex++) {
-                Card card = deck.drawCard();
-                ImageView cardView = new ImageView(card.getBackImage());
-                if (cardIndex == pileIndex) {
-                    card.flip();
-                    cardView.setImage(card.getFrontImage());
-                }
-                tableauPane.getChildren().add(cardView);
-                cardView.setTranslateY(cardIndex * 30);
-            }
-        }
-    }
     private int getTableauIndex(StackPane tableauPane) {
         if (tableauPane == tableau1) return 0;
         else if (tableauPane == tableau2) return 1;
@@ -90,9 +70,6 @@ public class HelloController {
         else throw new IllegalArgumentException("Invalid tableau pane");
     }
 
-    
-
-    
     //Tableau
     @FXML
     private StackPane tableau1, tableau2, tableau3, tableau4, tableau5, tableau6, tableau7;
@@ -165,82 +142,6 @@ public class HelloController {
         return (card1.getSuit() == Card.Suit.HEARTS || card1.getSuit() == Card.Suit.DIAMONDS) !=
                (card2.getSuit() == Card.Suit.HEARTS || card2.getSuit() == Card.Suit.DIAMONDS);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    private void setupDragAndDrop() {
-        List<StackPane> tableaus = Arrays.asList(tableau1, tableau2, tableau3, tableau4, tableau5, tableau6, tableau7);
-        for (StackPane tableau : tableaus) {
-            setupTableauDropTarget(tableau);
-        }
-    }
-
-    private void makeCardDraggable(ImageView cardView, Card card) {
-        cardView.setOnDragDetected(event -> {
-            Dragboard db = cardView.startDragAndDrop(TransferMode.MOVE);
-            ClipboardContent content = new ClipboardContent();
-            // Generate a unique identifier for the card
-            String identifier = card.getSuit().name() + ":" + card.getValue();
-            content.putString(identifier);
-            db.setContent(content);
-
-            cardView.setOpacity(0.5);
-            event.consume();
-        });
-
-        cardView.setOnDragDone(event -> {
-            cardView.setOpacity(1.0);
-            event.consume();
-        });
-    }
-
-    private void setupTableauDropTarget(StackPane tableau) {
-        tableau.setOnDragOver(event -> {
-            if (event.getGestureSource() != tableau && event.getDragboard().hasString()) {
-                event.acceptTransferModes(TransferMode.MOVE);
-            }
-            event.consume();
-        });
-
-        tableau.setOnDragDropped(event -> {
-            Dragboard db = event.getDragboard();
-            boolean success = false;
-
-            if (db.hasString()) {
-                String cardData = db.getString();
-                String[] parts = cardData.split(":");
-                Card.Suit suit = Card.Suit.valueOf(parts[0]);
-                int value = Integer.parseInt(parts[1]);
-
-                // Now you have the suit and value, you can find the corresponding card
-                // Implement the logic to check if the move is valid and then move the card
-
-                success = true; // Set to true if the move is valid
-            }
-
-            event.setDropCompleted(success);
-            event.consume();
-        });
-    }
-
-
-
 
 
 }

@@ -11,7 +11,7 @@ public class Tableau {
     public Tableau(int numberOfPiles) {
         piles = new ArrayList<>(numberOfPiles);
         for (int i = 0; i < numberOfPiles; i++) {
-            piles.add(new Stack<>());
+            piles.add(new Stack<Card>());
         }
     }
 
@@ -45,8 +45,10 @@ public class Tableau {
         //Suits are ordered as HEARTS, DIAMONDS, CLUBS, SPADES in the enum (check card class).
         boolean card1IsRed = card1.getSuit() == Card.Suit.HEARTS || card1.getSuit() == Card.Suit.DIAMONDS;
         boolean card2IsRed = card2.getSuit() == Card.Suit.HEARTS || card2.getSuit() == Card.Suit.DIAMONDS;
-
-        return card1IsRed != card2IsRed; //False if both are the same colour.
+        return card1IsRed != card2IsRed;
     }
 
+    public List<Stack<Card>> getPiles() {
+        return this.piles;
+    }
 }
