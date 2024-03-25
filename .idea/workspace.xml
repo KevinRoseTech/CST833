@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="986d96aa-cf48-4289-9ec4-590c9a5cb60f" name="Changes" comment="K: Fixed Redundant Code">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_19_2024_12_46_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_19_2024_12_46_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_19_2024_12_46_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_19_2024_12_46_PM__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_6_2024_8_53_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_6_2024_8_53_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="986d96aa-cf48-4289-9ec4-590c9a5cb60f" name="Changes" comment="Added imageview to each card, and basic drag and drop from tableau">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cst8334/cst833/HelloController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710909573613</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added imageview to each card, and basic drag and drop from tableau">
+      <option name="closed" value="true" />
+      <created>1711320646086</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711320646086</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +229,8 @@
     <MESSAGE value="Added sharmarke's contribution to Deck.java with the following changes to make it work.&#10;&#10;Switch was capitalized when it should be all lower case, application would not run otherwise.&#10;The switch cases had quotes so I removed them, application would not run otherwise.&#10;You used an i variable without declaring it, I assume you meant to use &quot;value&quot; so I changed it for you as once again this would cause errors elsewise." />
     <MESSAGE value="Tableau" />
     <MESSAGE value="K: Fixed Redundant Code" />
-    <option name="LAST_COMMIT_MESSAGE" value="K: Fixed Redundant Code" />
+    <MESSAGE value="Added imageview to each card, and basic drag and drop from tableau" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added imageview to each card, and basic drag and drop from tableau" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CST833$HelloApplication.ic" NAME="HelloApplication Coverage Results" MODIFIED="1709221637724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

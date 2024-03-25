@@ -50,16 +50,26 @@ public class HelloController {
 
 
     //Charles Talon pile must maintain order in which stockpile cards were discarded GROUP-26 e Ө Ө
+
     @FXML
     private void onStockClicked(MouseEvent event) {
         if (!deck.isEmpty()) {
             Card card = deck.drawCard();
-            ImageView cardView = new ImageView(card.getFrontImage());
+            ImageView cardView = card.getImageView();
 
-            // Add the card to the talon pile, preserving order
+            // Ensure the card is face up when moved to the talon pile, if not already.
+            if (!card.isFaceUp()) {
+                card.flip(); // This should automatically update the card's ImageView to show the front image.
+            }
+
+            // Apply drag-and-drop event handlers to this card's ImageView.
+            setupDragAndDrop(cardView, card);
+
+            // Add the card to the talon pile, preserving order.
             talonPile.getChildren().add(cardView);
         }
     }
+
 
     private int getTableauIndex(StackPane tableauPane) {
         if (tableauPane == tableau1) return 0;
@@ -88,6 +98,59 @@ public class HelloController {
         }
     }
     
+
+
+    private boolean isAlternateSuit(Card card1, Card card2) {
+        //If both cards are face down, no stack
+        if (!card1.isFaceUp() || !card2.isFaceUp()) {
+            return false;
+        }
+
+        //Checks if suit is alt
+        return (card1.getSuit() == Card.Suit.HEARTS || card1.getSuit() == Card.Suit.DIAMONDS) !=
+               (card2.getSuit() == Card.Suit.HEARTS || card2.getSuit() == Card.Suit.DIAMONDS);
+    }
+    private void setupDragAndDrop(ImageView cardView, Card card) {
+        final double[] mouseAnchorX = new double[1];
+        final double[] mouseAnchorY = new double[1];
+
+        cardView.setOnMousePressed(event -> {
+            //K: Record the mouse position at the start of the drag.
+            //K: This is relative to the scene to ensure we get an absolute position.
+            mouseAnchorX[0] = event.getSceneX();
+            mouseAnchorY[0] = event.getSceneY();
+
+            //K: Card opacity
+            cardView.setOpacity(0.4);
+            event.consume();
+        });
+
+        cardView.setOnMouseDragged(event -> {
+            //K: Calculate the new translation based on the current mouse position
+            //K: inus the initial mouse anchor position. This requires adjusting
+            //K: for the current translation to ensure the card follows the cursor smoothly.
+            double translateX = event.getSceneX() - mouseAnchorX[0] + cardView.getTranslateX();
+            double translateY = event.getSceneY() - mouseAnchorY[0] + cardView.getTranslateY();
+
+            // L:Update the translation to move the card with the cursor.
+            cardView.setTranslateX(translateX);
+            cardView.setTranslateY(translateY);
+
+            // K: Updates  anchor position so card stays with cursor while moving.
+            mouseAnchorX[0] = event.getSceneX();
+            mouseAnchorY[0] = event.getSceneY();
+            event.consume();
+        });
+
+        cardView.setOnMouseReleased(event -> {
+            // Reset visual cues and apply any necessary adjustments to finalize the drop.
+            cardView.setOpacity(1.0);
+            event.consume();
+        });
+    }
+
+
+
     //Charles  Tableau Stacks of cards can only be moved when appropriately stacked by alternating suits
     @FXML
     private void onCardClicked(MouseEvent event) {
@@ -133,57 +196,6 @@ public class HelloController {
         // Check if the suits alternate
         return isAlternateSuit(movingCard, topCard);
     }
-
-    private boolean isAlternateSuit(Card card1, Card card2) {
-        //If both cards are face down, no stack
-        if (!card1.isFaceUp() || !card2.isFaceUp()) {
-            return false;
-        }
-
-        //Checks if suit is alt
-        return (card1.getSuit() == Card.Suit.HEARTS || card1.getSuit() == Card.Suit.DIAMONDS) !=
-               (card2.getSuit() == Card.Suit.HEARTS || card2.getSuit() == Card.Suit.DIAMONDS);
-    }
-    private void setupDragAndDrop(ImageView cardView, Card card) {
-        final double[] mouseAnchorX = new double[1];
-        final double[] mouseAnchorY = new double[1];
-
-        cardView.setOnMousePressed(event -> {
-            // Record the mouse position at the start of the drag.
-            // This is relative to the scene to ensure we get an absolute position.
-            mouseAnchorX[0] = event.getSceneX();
-            mouseAnchorY[0] = event.getSceneY();
-
-            // Set the card's opacity to indicate it's being dragged.
-            cardView.setOpacity(0.4);
-            event.consume();
-        });
-
-        cardView.setOnMouseDragged(event -> {
-            // Calculate the new translation based on the current mouse position
-            // minus the initial mouse anchor position. This requires adjusting
-            // for the current translation to ensure the card follows the cursor smoothly.
-            double translateX = event.getSceneX() - mouseAnchorX[0] + cardView.getTranslateX();
-            double translateY = event.getSceneY() - mouseAnchorY[0] + cardView.getTranslateY();
-
-            // Update the translation to move the card with the cursor.
-            cardView.setTranslateX(translateX);
-            cardView.setTranslateY(translateY);
-
-            // K: Updates  anchor position so card stays with cursor while moving.
-            mouseAnchorX[0] = event.getSceneX();
-            mouseAnchorY[0] = event.getSceneY();
-            event.consume();
-        });
-
-        cardView.setOnMouseReleased(event -> {
-            // Reset visual cues and apply any necessary adjustments to finalize the drop.
-            cardView.setOpacity(1.0);
-            event.consume();
-        });
-    }
-
-
 
 
 }

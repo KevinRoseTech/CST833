@@ -1,0 +1,138 @@
+Index: src/main/java/com/cst8334/cst833/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.cst8334.cst833;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.Collections;\r\nimport java.util.List;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.geometry.Pos;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.image.Image;\r\nimport javafx.scene.image.ImageView;\r\nimport javafx.scene.layout.BorderPane;\r\nimport javafx.scene.layout.HBox;\r\nimport javafx.scene.layout.Priority;\r\nimport javafx.scene.layout.VBox;\r\nimport javafx.scene.text.Text;\r\nimport javafx.scene.text.TextAlignment;\r\nimport javafx.stage.Stage;\r\n\r\npublic class Main extends Application {\r\n    private List<Card> deck;\r\n    private Card talonCard;\r\n    private List<HBox> tableauPiles;\r\n    private VBox tableauArea;\r\n    private ImageView talonImageView;\r\n    private boolean vegasMode = false;\r\n    private int score = 0;\r\n    private Text scoreText; // Declare scoreText as a class member variable\r\n\r\n    @Override\r\n    public void start(Stage primaryStage) {\r\n        try {\r\n            BorderPane root = new BorderPane();\r\n            Scene scene = new Scene(root, 800, 600);\r\n\r\n            // Create headings\r\n\r\n            // Create a VBox to hold headings\r\n            VBox headingsBox = new VBox(10);\r\n\r\n            // Add headings to the bottom of the BorderPane\r\n            root.setBottom(headingsBox);\r\n\r\n            // Create HBox to hold buttons\r\n            HBox buttonBox = new HBox(10);\r\n            buttonBox.setAlignment(Pos.CENTER);\r\n            Button newGameButton = new Button(\"New Game\");\r\n            newGameButton.setOnAction(event -> {\r\n                System.out.println(\"New Game button clicked\"); // Debugging statement\r\n                startNewGame();\r\n            });\r\n            Text headingText = new Text(\"CST8334 Assignment 1 Solitaire game\");\r\n            headingText.setStyle(\"-fx-font-size: 20;\");\r\n            headingText.setTextAlignment(TextAlignment.CENTER);\r\n            scoreText = new Text(\"Score: \" + score); // Initialize scoreText\r\n            scoreText.setStyle(\"-fx-font-size: 16;\");\r\n\r\n            Button vegasModeButton = new Button(\"Vegas Mode: OFF\");\r\n            vegasModeButton.setOnAction(event -> {\r\n                vegasMode = !vegasMode; // Toggle Vegas mode\r\n                vegasModeButton.setText(\"Vegas Mode: \" + (vegasMode ? \"ON\" : \"OFF\"));\r\n            });\r\n            buttonBox.getChildren().addAll(newGameButton, vegasModeButton, scoreText,headingText);\r\n\r\n            // Add the button box to the top of the BorderPane\r\n            root.setTop(buttonBox);\r\n\r\n            // Create a VBox to hold multiple rows of cards\r\n            tableauArea = new VBox(); // Initialize tableauArea\r\n            // Set spacing between rows\r\n            tableauArea.setSpacing(10); // Adjust spacing as needed\r\n\r\n            // Initialize tableau piles\r\n            tableauPiles = new ArrayList<>();\r\n            for (int i = 0; i < 7; i++) {\r\n                HBox tableauPile = new HBox();\r\n                tableauPile.setAlignment(Pos.CENTER);\r\n                tableauPiles.add(tableauPile);\r\n            }\r\n\r\n            // Create a talon pile area\r\n            HBox talonArea = new HBox();\r\n            talonArea.setAlignment(Pos.CENTER);\r\n\r\n            // Initialize the deck and talon pile\r\n            initializeDeck();\r\n            initializeTalonPile();\r\n\r\n            // Display the talon card\r\n            talonImageView = new ImageView(talonCard.getImage());\r\n            talonImageView.setOnMouseClicked(event -> {\r\n                // Draw a card from the deck to the talon pile\r\n                if (!deck.isEmpty()) {\r\n                    talonCard = deck.remove(deck.size() - 1);\r\n                    talonImageView.setImage(talonCard.getImage());\r\n                }\r\n            });\r\n            talonArea.getChildren().add(talonImageView);\r\n\r\n            // Add tableau area and talon area to the center of the BorderPane\r\n            root.setCenter(tableauArea);\r\n            root.setBottom(talonArea);\r\n\r\n            // Load external CSS file (if needed)\r\n            scene.getStylesheets().add(getClass().getResource(\"/application.css\").toExternalForm());\r\n\r\n            primaryStage.setScene(scene);\r\n            primaryStage.setTitle(\"CST8334 Assignment 1 Solitaire Game\");\r\n            primaryStage.show();\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n\r\n    private void updateScore(int increment) {\r\n        score += increment; // Increment the score by the specified value\r\n        scoreText.setText(\"Score: \" + score); // Update the displayed score\r\n    }\r\n    private void initializeDeck() {\r\n        deck = new ArrayList<>();\r\n        for (Card.Suit suit : Card.Suit.values()) {\r\n            for (int value = 1; value <= 13; value++) {\r\n                Image frontImage = new Image(\"file:///C:/Users/Afnan/eclipse-workspace/SolitarieFinal/src/application/card_images/\" + value + suit.name().charAt(0) + \".gif\");\r\n                Image backImage = new Image(\"file:///C:/Users/Afnan/eclipse-workspace/SolitarieFinal/src/application/card_images/back_card.gif\");\r\n                Card card = new Card(value, suit, frontImage, backImage);\r\n                deck.add(card);\r\n            }\r\n        }\r\n        // Shuffle the deck\r\n        Collections.shuffle(deck);\r\n    }\r\n\r\n    private void initializeTalonPile() {\r\n        if (!deck.isEmpty()) {\r\n            talonCard = deck.remove(deck.size() - 1);\r\n        } else {\r\n            // Handle case when deck is empty\r\n            talonCard = null;\r\n        }\r\n    }\r\n\r\n    private void populateTableauArea() {\r\n        // Assuming you have a list of card objects\r\n        List<Card> cards = new ArrayList<>();\r\n\r\n        boolean faceUp = false;\r\n        HBox currentRow = new HBox(); // Initialize the first row\r\n        currentRow.setAlignment(Pos.CENTER); // Set alignment of the row\r\n        for (int value = 1; value <= 3; value++) {\r\n            for (Card.Suit suit : Card.Suit.values()) {\r\n                Image frontImage = new Image(\"file:///C:/Users/Afnan/eclipse-workspace/SolitarieFinal/src/application/card_images/\" + value + suit.name().charAt(0) + \".gif\");\r\n                Image backImage = new Image(\"file:///C:/Users/Afnan/eclipse-workspace/SolitarieFinal/src/application/card_images/back_card.gif\");\r\n                Card card = new Card(value, suit, frontImage, backImage);\r\n                card.setFaceUp(faceUp); // Set the faceUp attribute\r\n                cards.add(card);\r\n                faceUp = !faceUp;\r\n\r\n                // Create an ImageView for the card\r\n                ImageView imageView = new ImageView(card.getImage());\r\n                // Add event handler to the ImageView\r\n                imageView.setOnMouseClicked(event -> {\r\n                    // Increment the score when a card is clicked\r\n                    updateScore(1);\r\n                    // Implement auto-stacking logic here\r\n                    // For now, let's just print a message\r\n                    System.out.println(\"Clicked card: \" + card.getValue() + \" of \" + card.getSuit());\r\n                });\r\n\r\n                // Add the ImageView to the current row\r\n                currentRow.getChildren().add(imageView);\r\n\r\n                // Check if the current row is full (4 cards)\r\n                if (currentRow.getChildren().size() == 4) {\r\n                    // Add the current row to the tableau area\r\n                    tableauArea.getChildren().add(currentRow);\r\n                    // Initialize a new row\r\n                    currentRow = new HBox();\r\n                    currentRow.setAlignment(Pos.CENTER);\r\n                }\r\n            }\r\n        }\r\n\r\n        // Add the last row if it's not empty\r\n        if (!currentRow.getChildren().isEmpty()) {\r\n            tableauArea.getChildren().add(currentRow);\r\n        }\r\n    }\r\n\r\n    private void startNewGame() {\r\n        // Clear tableau area\r\n        tableauArea.getChildren().clear();\r\n\r\n        // Initialize the deck and talon pile\r\n        initializeDeck();\r\n        // Shuffle the deck\r\n        Collections.shuffle(deck);\r\n        // Update talon card after shuffling\r\n        initializeTalonPile();\r\n\r\n        // Update talonImageView with the new talon card image\r\n        talonImageView.setImage(talonCard.getImage());\r\n\r\n        // Repopulate tableau area with cards\r\n        populateTableauArea();\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch(args);\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/com/cst8334/cst833/Main.java b/src/main/java/com/cst8334/cst833/Main.java
+--- a/src/main/java/com/cst8334/cst833/Main.java	
++++ b/src/main/java/com/cst8334/cst833/Main.java	
+@@ -122,8 +122,9 @@
+         deck = new ArrayList<>();
+         for (Card.Suit suit : Card.Suit.values()) {
+             for (int value = 1; value <= 13; value++) {
+-                Image frontImage = new Image("file:///C:/Users/Afnan/eclipse-workspace/SolitarieFinal/src/application/card_images/" + value + suit.name().charAt(0) + ".gif");
+-                Image backImage = new Image("file:///C:/Users/Afnan/eclipse-workspace/SolitarieFinal/src/application/card_images/back_card.gif");
++                Image frontImage = new Image(getClass().getResourceAsStream("/card_images/" + value + suit.name().charAt(0) + ".gif"));
++                Image backImage = new Image(getClass().getResourceAsStream("/card_images/back_card.gif"));
++
+                 Card card = new Card(value, suit, frontImage, backImage);
+                 deck.add(card);
+             }
+@@ -142,51 +143,42 @@
+     }
+ 
+     private void populateTableauArea() {
+-        // Assuming you have a list of card objects
+-        List<Card> cards = new ArrayList<>();
++        tableauArea.getChildren().clear();  // Clear the area for a new game
++        tableauPiles.clear();
++
++        // Create each tableau pile with the appropriate number of cards
++        for (int i = 0; i < 7; i++) {
++            // Create a new pile represented by a VBox
++            VBox tableauPile = new VBox(5); // Use VBox for vertical stacking, 5 is the spacing between cards
++            tableauPile.setAlignment(Pos.TOP_CENTER);
++            tableauPiles.add(tableauPile);
+ 
+-        boolean faceUp = false;
+-        HBox currentRow = new HBox(); // Initialize the first row
+-        currentRow.setAlignment(Pos.CENTER); // Set alignment of the row
+-        for (int value = 1; value <= 3; value++) {
+-            for (Card.Suit suit : Card.Suit.values()) {
+-                Image frontImage = new Image("file:///C:/Users/Afnan/eclipse-workspace/SolitarieFinal/src/application/card_images/" + value + suit.name().charAt(0) + ".gif");
+-                Image backImage = new Image("file:///C:/Users/Afnan/eclipse-workspace/SolitarieFinal/src/application/card_images/back_card.gif");
+-                Card card = new Card(value, suit, frontImage, backImage);
+-                card.setFaceUp(faceUp); // Set the faceUp attribute
+-                cards.add(card);
+-                faceUp = !faceUp;
++            for (int j = 0; j <= i; j++) {
++                if (!deck.isEmpty()) {
++                    // Draw the top card from the deck
++                    Card card = deck.remove(deck.size() - 1);
++                    // Only the top card in each pile should be face up
++                    card.setFaceUp(j == i);
++                    ImageView cardView = new ImageView(card.getImage());
+ 
+-                // Create an ImageView for the card
+-                ImageView imageView = new ImageView(card.getImage());
+-                // Add event handler to the ImageView
+-                imageView.setOnMouseClicked(event -> {
+-                    // Increment the score when a card is clicked
+-                    updateScore(1);
+-                    // Implement auto-stacking logic here
+-                    // For now, let's just print a message
+-                    System.out.println("Clicked card: " + card.getValue() + " of " + card.getSuit());
+-                });
++                    // Set a click event to flip the card if it's face down
++                    cardView.setOnMouseClicked(event -> {
++                        if (!card.isFaceUp()) {
++                            card.setFaceUp(true);
++                            cardView.setImage(card.getImage());
++                        }
++                    });
+ 
+-                // Add the ImageView to the current row
+-                currentRow.getChildren().add(imageView);
+-
+-                // Check if the current row is full (4 cards)
+-                if (currentRow.getChildren().size() == 4) {
+-                    // Add the current row to the tableau area
+-                    tableauArea.getChildren().add(currentRow);
+-                    // Initialize a new row
+-                    currentRow = new HBox();
+-                    currentRow.setAlignment(Pos.CENTER);
++                    // Add the ImageView to the pile
++                    tableauPile.getChildren().add(cardView);
+                 }
+             }
+-        }
+ 
+-        // Add the last row if it's not empty
+-        if (!currentRow.getChildren().isEmpty()) {
+-            tableauArea.getChildren().add(currentRow);
++            // Add the pile to the tableau area
++            tableauArea.getChildren().add(tableauPile);
+         }
+     }
++
+ 
+     private void startNewGame() {
+         // Clear tableau area
+@@ -204,9 +196,35 @@
+ 
+         // Repopulate tableau area with cards
+         populateTableauArea();
++        setupInteractions(); // Call this method to setup card interactions for the new game
++
+     }
++    private void setupInteractions() {
++        // Example: Setting up a click event on the talonImageView to move the card to the first tableau if valid
++        talonImageView.setOnMouseClicked(event -> {
++            // Check if the move is valid for the first tableau pile (simplified example)
++            if (!tableauPiles.isEmpty() && !deck.isEmpty()) {
++                Card cardToMove = deck.remove(deck.size() - 1); // Simulate drawing the last card from the deck
++                HBox firstTableauPile = tableauPiles.get(0); // Simplified: always try to move to the first tableau pile
++                if (firstTableauPile.getChildren().isEmpty() || cardToMove.canPlaceOnTableau(null)) { // Simplified check
++                    // Move the card to the tableau visually and logically (simplified logic)
++                    ImageView cardView = new ImageView(cardToMove.getImage());
++                    firstTableauPile.getChildren().add(cardView);
++                    cardToMove.setFaceUp(true); // Show the card face up
+ 
++                    // Update talon card and view for the next card in the deck, if available
++                    if (!deck.isEmpty()) {
++                        talonCard = deck.get(deck.size() - 1);
++                        talonImageView.setImage(talonCard.getImage());
++                    }
++                } else {
++                    // If the move is not valid, add the card back to the deck (simplified handling)
++                    deck.add(cardToMove);
++                }
++            }
++        });
++    }
+     public static void main(String[] args) {
+         launch(args);
+     }
+-}
++}
+\ No newline at end of file
